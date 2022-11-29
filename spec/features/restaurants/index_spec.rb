@@ -13,8 +13,4 @@ RSpec.describe "restaurants index page", type: :feature do
     expect(page).to have_content(restaurant.name)
     expect(page).to have_content(restaurant1.name)
   end
-
-
-
-
 end
