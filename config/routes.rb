@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/restaurants', to: 'restaurants#index'
-  get '/restaurants/1', to: 'restaurants#show'
+  get '/restaurants/:id', to: 'restaurants#show'
+  get '/dishes', to: 'dishes#index'
+  get '/dishes/:id', to: 'dishes#show'
 end
