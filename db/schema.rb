@@ -16,21 +16,19 @@ ActiveRecord::Schema.define(version: 2022_11_29_043001) do
   enable_extension "plpgsql"
 
   create_table "dishes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "hot"
-    t.integer "price"
-    t.string "name"
     t.bigint "restaurant_id"
+    t.string "name"
+    t.integer "price"
+    t.boolean "hot"
+    t.timestamps
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean "open"
-    t.integer "rating"
     t.string "name"
+    t.integer "rating"
+    t.boolean "open"
+    t.timestamps
   end
 
   add_foreign_key "dishes", "restaurants"
