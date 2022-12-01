@@ -14,4 +14,16 @@ RSpec.describe Restaurant, type: :model do
       expect(Restaurant.ordered).to eq([restaurant, restaurant1])
     end
   end
+
+  describe '#dish_count' do
+    it 'can count the dishes of a restaurant' do
+      restaurant = Restaurant.create(open: true, rating: 3, name: "Rookies")
+
+      pasta = restaurant.dishes.create!(hot: true, price: 15, name: "Seafood Pasta")
+      sundae = restaurant.dishes.create!(hot: false, price: 5, name: "Fudge Sundae")
+      pho = restaurant.dishes.create!(hot: true, price: 12, name: "Pho")
+
+      expect(restaurant.dish_count).to eq(3)
+    end
+  end
 end
