@@ -4,4 +4,8 @@ class Restaurant < ApplicationRecord
   def self.ordered
     self.all.order('created_at')
   end
+
+  def dish_count
+    dishes.count
+  end
 end
