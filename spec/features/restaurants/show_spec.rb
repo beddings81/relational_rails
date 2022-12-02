@@ -41,4 +41,12 @@ RSpec.describe "restaurants show page", type: :feature do
 
     expect(current_path).to eq("/restaurants")
   end
+
+  it 'links to that restaurants dishes' do
+    visit "/restaurants/#{@restaurant.id}"
+
+    click_link('Our Dishes')
+
+    expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
+  end
 end
