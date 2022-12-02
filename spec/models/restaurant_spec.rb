@@ -8,10 +8,10 @@ RSpec.describe Restaurant, type: :model do
       restaurant = Restaurant.create(id: 1, created_at: DateTime.now - 5.days,
       updated_at: Time.now, open: true, rating: 3, name: "Rocky Top Cafe")
 
-      restaurant1 = Restaurant.create(id: 2, created_at: DateTime.now - 2.days,
+      restaurant1 = Restaurant.create(id: 2, created_at: DateTime.now,
       updated_at: Time.now, open: true, rating: 2.5, name: "Eddings Cafe")
 
-      expect(Restaurant.ordered).to eq([restaurant, restaurant1])
+      expect(Restaurant.ordered).to eq([restaurant1, restaurant])
     end
   end
 
