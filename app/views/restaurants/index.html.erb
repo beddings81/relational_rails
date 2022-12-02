@@ -3,4 +3,6 @@
 
 <% @restaurants.each do |restaurant| %>
   <h3>- <%= restaurant.name %>- Created_at: <%= restaurant.created_at %></h3>
-<% end %>
+  <% end %>
+  
+  <%= link_to "New Restaurant", "/restaurants/new" %>
