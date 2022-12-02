@@ -10,4 +10,9 @@ class RestaurantsController < ApplicationController
   def new
 
   end
+
+  def create
+    restaurant = Restaurant.create(name: params[:name])
+    redirect_to '/restaurants'
+  end
 end

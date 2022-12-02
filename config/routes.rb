@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/dishes', to: 'dishes#index'
   get '/dishes/:id', to: 'dishes#show'
   get '/restaurants/:id/dishes', to: 'restaurant_dishes#index'
+  post '/restaurants', to: 'restaurants#create'
 end
