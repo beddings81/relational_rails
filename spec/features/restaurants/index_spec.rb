@@ -26,4 +26,12 @@ RSpec.describe "restaurants index page", type: :feature do
      expect(page).to have_content(restaurant.created_at)
      expect(page).to have_content(restaurant1.created_at)
   end
+
+  it 'links to each dishes index page' do
+    visit "/restaurants"
+
+    click_link('Dishes')
+
+    expect(current_path).to eq("/dishes")
+  end
 end
