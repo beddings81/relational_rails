@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post '/restaurants', to: 'restaurants#create'
   patch '/restaurants/:id', to: 'restaurants#update'
   get '/restaurants/:id/dishes/new', to: 'restaurant_dishes#new'
+  post '/restaurants/:id/dishes', to: 'restaurant_dishes#create_dish'
 end
