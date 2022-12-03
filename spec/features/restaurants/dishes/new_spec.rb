@@ -8,7 +8,7 @@ RSpec.describe 'restaurant dishes new page' do
     @sundae = @restaurant.dishes.create!(hot: false, price: 5, name: "Fudge Sundae")
     @pho = @restaurant1.dishes.create!(hot: true, price: 12, name: "Pho")
   end
-  
+
   it 'links to /parents/:parent_id/child_table_name/new' do
 
     visit "/restaurants/#{@restaurant.id}/dishes"
@@ -16,5 +16,19 @@ RSpec.describe 'restaurant dishes new page' do
     click_link('Add Dish')
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes/new")
+  end
+
+  it 'can create a new dish' do
+    visit "/restaurants/#{@restaurant.id}/dishes/new"
+
+    fill_in("name", with: "French Toast")
+    fill_in("price", with: "12345")
+    fill_in("hot?", with: "true")
+    click_button('Create Dish')
+
+    expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
+    expect(page).to have_content("French Toast")
+    expect(page).to have_content("12345")
+    expect(page).to have_content("true")
   end
 end
