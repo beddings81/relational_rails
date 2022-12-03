@@ -47,12 +47,4 @@ RSpec.describe "Restaurants dishes index page" do
 
     expect(current_path).to eq("/restaurants")
   end
-
-  it 'links to /parents/:parent_id/child_table_name/new' do
-    visit "/restaurants/#{@restaurant.id}/dishes"
-
-    click_link('Add Dish')
-
-    expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes/new")
-  end
 end
