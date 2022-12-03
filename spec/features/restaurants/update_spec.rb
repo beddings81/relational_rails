@@ -1,7 +1,4 @@
-# As a visitor
-# When I visit a parent show page
-# Then I see a link to update the parent "Update Parent"
-# When I click the link "Update Parent"
+
 # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
 # When I fill out the form with updated information
 # And I click the button to submit the form
@@ -23,5 +20,15 @@ RSpec.describe 'restaurants update page' do
     click_link("Update Restaurant")
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/edit")
+  end
+
+  it 'can update a restaurant' do
+    visit "/restaurants/#{@restaurant.id}/edit"
+
+    fill_in("name", with: "Sydney's Bakery")
+    click_button('Update Restaurant')
+
+    expect(current_path).to eq("/restaurants/#{@restaurant.id}")
+    expect(page).to have_content("Sydney's Bakery")
   end
 end
