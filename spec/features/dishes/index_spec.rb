@@ -8,13 +8,17 @@ RSpec.describe "dishes index page", type: :feature do
     dish = Dish.create!(id: 1, restaurant_id:1, created_at: DateTime.now,
      updated_at: DateTime.now, hot: true, price: 15, name: "Seafood Pasta")
 
-    dish1 = Dish.create!(id: 2, restaurant_id: 1, created_at: DateTime.now,
+    dish2 = Dish.create!(id: 2, restaurant_id: 1, created_at: DateTime.now,
      updated_at: DateTime.now, hot: true, price: 25, name: "12oz Ribeye")
+
+    dish3 = Dish.create!(id: 3, restaurant_id: 1, created_at: DateTime.now,
+     updated_at: DateTime.now, hot: false, price: 25, name: "Im not true")
 
     visit "/dishes"
 
     expect(page).to have_content(dish.name)
-    expect(page).to have_content(dish1.name)
+    expect(page).to have_content(dish2.name)
+    expect(page).not_to have_content(dish3.name)
   end
 
   it 'links to the dishes index page' do
