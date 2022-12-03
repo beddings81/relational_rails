@@ -15,4 +15,18 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.create(name: params[:name])
     redirect_to '/restaurants'
   end
+  
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    restaurant = Restaurant.find(params[:id])
+    restaurant.update({
+      name: params[:name],
+      updated_at: Time.now
+    })
+    restaurant.save
+    redirect_to "/restaurants/#{restaurant.id}"
+  end
 end
