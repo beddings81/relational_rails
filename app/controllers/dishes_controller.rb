@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
-    @dishes = Dish.all
+    @dishes = Dish.true_only
   end
 
   def show
