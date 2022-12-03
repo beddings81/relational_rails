@@ -6,3 +6,5 @@
 <p>Open: <%= @restaurant.open %></p>
 <p>Created_at: <%= @restaurant.created_at %></p>
 <p>Updated_at: <%= @restaurant.updated_at %></p>
+
+<%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %>
