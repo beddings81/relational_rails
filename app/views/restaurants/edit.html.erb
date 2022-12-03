@@ -1,5 +1,9 @@
 <%= form_with url: "/restaurants/#{@restaurant.id}/", method: :patch, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p><br/>
+  <p><%= form.label :open %>
+  <%= form.text_field :open %></p><br/>
+  <p><%= form.label :rating %>
+  <%= form.text_field :rating %></p><br/>
   <%= form.submit "Update Restaurant" %>
 <% end %>

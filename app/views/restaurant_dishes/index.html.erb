@@ -10,3 +10,5 @@
   <p>Created_at: <%= dish.created_at %></p>
   <p>Updated_at: <%= dish.updated_at %></p>
 <% end %>
+
+<%= link_to "Add Dish", "/restaurants/#{@restaurant.id}/dishes/new" %>

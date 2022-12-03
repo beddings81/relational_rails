@@ -18,9 +18,13 @@ RSpec.describe 'restaurants update page' do
     visit "/restaurants/#{@restaurant.id}/edit"
 
     fill_in("name", with: "Sydney's Bakery")
+    fill_in("open", with: "false")
+    fill_in("rating", with: "12345")
     click_button('Update Restaurant')
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}")
     expect(page).to have_content("Sydney's Bakery")
+    expect(page).to have_content("false")
+    expect(page).to have_content("12345")
   end
 end
