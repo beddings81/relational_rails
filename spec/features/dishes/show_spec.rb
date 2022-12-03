@@ -16,22 +16,12 @@ RSpec.describe "dishes show page", type: :feature do
     visit "/dishes/#{@dish.id}"
 
     expect(page).to have_content(@dish.name)
+    expect(page).to have_content(@dish.id)
+    expect(page).to have_content(@dish.restaurant_id)
+    expect(page).to have_content(@dish.price)
+    expect(page).to have_content(@dish.hot)
+    expect(page).to have_content(@dish.created_at)
+    expect(page).to have_content(@dish.updated_at)
     expect(page).to_not have_content(@dish1.name)
-    end
-
-    it 'links to the dishes index page' do
-      visit "/dishes/#{@dish.id}"
-
-      click_link('Dishes')
-
-      expect(current_path).to eq("/dishes")
-    end
-
-    it 'links to the restaurant index page' do
-      visit "/dishes/#{@dish.id}"
-
-      click_link('Restaurants')
-
-      expect(current_path).to eq("/restaurants")
     end
   end

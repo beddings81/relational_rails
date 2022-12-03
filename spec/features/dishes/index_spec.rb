@@ -20,20 +20,4 @@ RSpec.describe "dishes index page", type: :feature do
     expect(page).to have_content(dish2.name)
     expect(page).not_to have_content(dish3.name)
   end
-
-  it 'links to the dishes index page' do
-    visit "/dishes"
-
-    click_link('Dishes')
-
-    expect(current_path).to eq("/dishes")
-  end
-
-  it 'links to the restaurant index page' do
-    visit "/dishes"
-
-    click_link('Restaurants')
-
-    expect(current_path).to eq("/restaurants")
-  end
 end
