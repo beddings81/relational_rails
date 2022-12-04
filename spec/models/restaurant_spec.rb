@@ -26,4 +26,16 @@ RSpec.describe Restaurant, type: :model do
       expect(restaurant.dish_count).to eq(3)
     end
   end
+
+  describe '#in_order' do
+    it 'can list dishes alphabetically' do
+      restaurant = Restaurant.create(open: true, rating: 3, name: "Rookies")
+
+      pasta = restaurant.dishes.create!(hot: true, price: 15, name: "Pasta")
+      sundae = restaurant.dishes.create!(hot: false, price: 5, name: "Sundae")
+      pho = restaurant.dishes.create!(hot: true, price: 12, name: "Pho")
+
+      expect(restaurant.in_order).to eq([pasta, pho, sundae])
+    end
+  end
 end
