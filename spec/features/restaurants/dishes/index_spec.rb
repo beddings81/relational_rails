@@ -32,19 +32,13 @@ RSpec.describe "Restaurants dishes index page" do
     expect(page).to_not have_content(@pho.name)
   end
 
-  it 'links to the dishes index page' do
+  it 'contains a link to sort dishes by alphabetical order' do
     visit "/restaurants/#{@restaurant.id}/dishes"
 
-    click_link('Dishes')
+    click_link("Sort")
 
-    expect(current_path).to eq("/dishes")
-  end
-
-  it 'links to the restaurant index page' do
-    visit "/restaurants/#{@restaurant.id}/dishes"
-
-    click_link('Restaurants')
-
-    expect(current_path).to eq("/restaurants")
+    expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
+    expect(page).to have_content("Seafood Pasta")
+    expect(page).to have_content("Fudge Sundae")
   end
 end

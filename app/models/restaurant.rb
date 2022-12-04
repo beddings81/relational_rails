@@ -8,4 +8,8 @@ class Restaurant < ApplicationRecord
   def dish_count
     dishes.count
   end
+
+  def in_order
+    dishes.order(:name)
+  end
 end
