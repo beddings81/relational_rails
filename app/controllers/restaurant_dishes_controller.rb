@@ -1,7 +1,14 @@
 class RestaurantDishesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:id])
-    @dishes = @restaurant.dishes
+    @dishes = @restaurant.in_order
+    # if sort
+    #   @restaurant = Restaurant.find(params[:id])
+    #   @dishes = @restaurant.in_order
+    # else
+    #   @restaurant = Restaurant.find(params[:id])
+    #   @dishes = @restaurant.dishes
+    # end
   end
 
   def new
@@ -19,4 +26,10 @@ class RestaurantDishesController < ApplicationController
 
     redirect_to "/restaurants/#{dish.restaurant_id}/dishes"
   end
+
+  # def sort
+  #   @restaurant = Restaurant.find(params[:id])
+  #   @dishes = @restaurant.in_order
+  #   # redirect_to "/restaurants/#{@restaurant.id}/dishes"
+  # end
 end
