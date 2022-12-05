@@ -13,14 +13,14 @@ class RestaurantDishesController < ApplicationController
   end
 
   def create_dish
-    dish = Dish.new({
-      name: params[:dish][:name],
-      price: params[:dish][:price],
-      hot: params[:dish][:hot],
-      restaurant_id: params[:dish][:restaurant_id]
-    })
+    dish = Dish.new(restaurant_dishes_params)
     dish.save
 
     redirect_to "/restaurants/#{dish.restaurant_id}/dishes"
+  end
+
+private
+  def restaurant_dishes_params
+    params.require(:dish).permit(:name, :price, :hot, :restaurant_id)
   end
 end

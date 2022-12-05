@@ -13,20 +13,20 @@ class DishesController < ApplicationController
 
   def update
     dish = Dish.find(params[:id])
-    dish.update({
-      name: params[:name],
-      price: params[:price],
-      hot: params[:hot],
-      updated_at: Time.now
-    })
+    dish.update(dish_params)
     dish.save
 
     redirect_to "/dishes/#{dish.id}"
   end
 
   def destroy
-    @dish = Dish.find(params[:id])
-    @dish.destroy
-    redirect_to "/dishes"
+    Dish.destroy(params[:id])
+    redirect_to '/dishes'
+  end
+
+  private
+
+  def dish_params
+    params.permit(:name, :price, :hot, :updated_at)
   end
 end

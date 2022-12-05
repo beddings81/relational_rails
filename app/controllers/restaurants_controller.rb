@@ -22,12 +22,7 @@ class RestaurantsController < ApplicationController
 
   def update
     restaurant = Restaurant.find(params[:id])
-    restaurant.update({
-      name: params[:name],
-      open: params[:open],
-      rating: params[:rating],
-      updated_at: Time.now
-    })
+    restaurant.update(restaurant_params)
     restaurant.save
     redirect_to "/restaurants/#{restaurant.id}"
   end
@@ -36,5 +31,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to "/restaurants"
+  end
+
+private
+  def restaurant_params
+    params.permit(:name, :open, :rating, :updated_at)
   end
 end
