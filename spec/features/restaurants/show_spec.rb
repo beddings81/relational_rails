@@ -33,12 +33,4 @@ RSpec.describe "restaurants show page", type: :feature do
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
   end
-
-  it 'has a link to delete a restaurant' do
-    visit "/restaurants/#{@restaurant.id}"
-
-    click_link("Delete Restaurant")
-
-    expect(current_path).to eq("/restaurants")
-  end
 end
