@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'dishes/:id/edit', to: 'dishes#edit'
   patch '/dishes/:id', to: 'dishes#update'
   get 'restaurants/:id/destroy', to: 'restaurants#destroy'
+  get 'dishes/:id/destroy', to: 'dishes#destroy'
 end
