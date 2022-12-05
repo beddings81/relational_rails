@@ -23,5 +23,4 @@ RSpec.describe "dishes index page", type: :feature do
 
     expect(current_path).to eq("/dishes/#{@dish.id}/edit")
   end
-
 end
