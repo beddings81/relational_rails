@@ -6,4 +6,4 @@
 <p>Created_at: <%= @dish.created_at %></p>
 <p>Updated_at: <%= @dish.updated_at %></p>
 
-<%= link_to "Update Dish", "/dishes/#{@dish.id}/edit" %>
+<%= link_to "Update Dish", "/dishes/#{@dish.id}/edit" %> | <%= link_to "Delete Dish", "/dishes/#{@dish.id}/destroy" %>
