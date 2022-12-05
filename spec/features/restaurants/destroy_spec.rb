@@ -18,4 +18,15 @@ RSpec.describe "restaurants show page", type: :feature do
 
     expect(page).to_not have_content("Popcorn")
   end
+
+  describe 'restaurants index page' do
+    it 'has a link to delete a restaurant' do
+      visit "/restaurants"
+
+      click_link("Delete #{@restaurant.name}")
+
+      expect(current_path).to eq("/restaurants")
+      expect(page).to_not have_content('Rocky Top Cafe')
+    end
+  end
 end
