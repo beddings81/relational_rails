@@ -41,4 +41,12 @@ RSpec.describe "Restaurants dishes index page" do
     expect(page).to have_content("Seafood Pasta")
     expect(page).to have_content("Fudge Sundae")
   end
+
+  it 'links to a dishes edit page' do
+    visit "restaurants/#{@restaurant.id}/dishes"
+
+    click_link("Update #{@pasta.name}")
+
+    expect(current_path).to eq("/dishes/#{@pasta.id}/edit")
+  end
 end

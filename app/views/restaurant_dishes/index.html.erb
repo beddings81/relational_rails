@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name %></h1>
 
 <% @dishes.each do |dish| %>
-  <h3><%= dish.name %></h3>
+  <h3><%= dish.name %> <%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %></h3>
   <p>Id: <%= dish.id %></p>
   <p>Restaurant_id: <%= dish.restaurant_id %></p>
   <p>Price: <%= dish.price %></p>
