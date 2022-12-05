@@ -1,6 +1,6 @@
 <h1>Dishes Index</h1>
 <% @dishes.each do |dish| %>
-  <h3><%= dish.name %> <%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %></h3>
+  <h3><%= dish.name %> <%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %> | <%= link_to "Delete #{dish.name}", "/dishes/#{dish.id}/destroy" %></h3>
   <p>Restaurant_id: <%= dish.restaurant_id %></p>
   <p>Price: <%= dish.price %></p>
   <p>Hot?: <%= dish.hot %></p>
