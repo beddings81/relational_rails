@@ -1,11 +1,9 @@
-<form action="/restaurants/<%= @restaurant.id %>/dishes" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>New Dish Name:</p>
-  <input id="name" type="text" name="dish[name]" /><br/>
-  <p>New Dish Price:</p>
-  <input id="price" type="integer" name="dish[price]" /><br/>
-  <p>Hot? (T/F)</p>
-  <input id="hot?" type="boolean" name="dish[hot]" /><br/>
-  <input type="hidden" name="dish[restaurant_id]" value="<%= @restaurant.id %>">
-  <input type='submit' value="Create Dish"/>
-</form>
+<%= form_with url: "/restaurants/#{@restaurant.id}/dishes", method: :post, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p><br/>
+  <p><%= form.label :price %>
+  <%= form.text_field :price %></p><br/>
+  <p><%= form.label :hot %>
+  <%= form.text_field :hot %></p><br/>
+  <p><%= form.submit "Create Dish" %></p>
+<% end %>

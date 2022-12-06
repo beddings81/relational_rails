@@ -1,5 +1,5 @@
-<%= link_to "Our Dishes", "/restaurants/#{@restaurant.id}/dishes" %>
 <h1><%= @restaurant.name %></h1>
+<%= link_to "View Menu", "/restaurants/#{@restaurant.id}/dishes" %>
 <p>Dishes: <%= @restaurant.dish_count %></p>
 <p>Id: <%= @restaurant.id %></p>
 <p>Rating: <%= @restaurant.rating %></p>
@@ -7,4 +7,5 @@
 <p>Created_at: <%= @restaurant.created_at %></p>
 <p>Updated_at: <%= @restaurant.updated_at %></p>
 
-<%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %> | <%= link_to "Delete Restaurant", "/restaurants/#{@restaurant.id}/destroy" %>
+<p><%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %></p>
+<p><%= button_to "Delete Restaurant", "/restaurants/#{@restaurant.id}/destroy" %></p>

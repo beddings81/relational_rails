@@ -5,7 +5,7 @@ RSpec.describe "restaurants index page", type: :feature do
     @restaurant = Restaurant.create(id: 1, created_at: DateTime.now,
      updated_at: DateTime.now, open: true, rating: 3, name: "Rocky Top Cafe")
 
-    @restaurant1 = Restaurant.create(id: 2, created_at: DateTime.now,
+    @restaurant1 = Restaurant.create(id: 2, created_at: DateTime.now - 5.days,
      updated_at: DateTime.now, open: true, rating: 2.5, name: "Eddings Cafe")
   end
   it 'can see all restaurant names' do
@@ -20,6 +20,12 @@ RSpec.describe "restaurants index page", type: :feature do
 
      expect(page).to have_content(@restaurant.created_at)
      expect(page).to have_content(@restaurant1.created_at)
+  end
+
+  it 'can be ordered by created at' do
+     visit "/restaurants"
+
+     expect(@restaurant.name).to appear_before(@restaurant1.name)
   end
 
   it 'links to edit a restaurant' do

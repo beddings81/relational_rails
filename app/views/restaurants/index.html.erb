@@ -1,7 +1,9 @@
 <h1>Restaurants</h1>
 
 <% @restaurants.each do |restaurant| %>
-  <h3>- <%= restaurant.name %>- Created_at: <%= restaurant.created_at %> <%= link_to "Update #{restaurant.name}", "/restaurants/#{restaurant.id}/edit" %> | <%= link_to "Delete #{restaurant.name}", "/restaurants/#{restaurant.id}/destroy" %></h3>
+  <h3>- <%= restaurant.name %>- Created_at: <%= restaurant.created_at %> </h3>
+  <p><%= link_to "Update #{restaurant.name}", "/restaurants/#{restaurant.id}/edit" %></p>
+  <p><%= button_to "Delete #{restaurant.name}", "/restaurants/#{restaurant.id}/destroy" %></p>
   <% end %>
   
   <%= link_to "New Restaurant", "/restaurants/new" %>
