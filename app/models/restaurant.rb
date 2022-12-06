@@ -12,4 +12,8 @@ class Restaurant < ApplicationRecord
   def alpha
     dishes.order(:name)
   end
+
+  def max_price(max)
+    dishes.where("price <= #{max}")
+  end
 end

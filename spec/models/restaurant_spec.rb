@@ -47,7 +47,7 @@ RSpec.describe Restaurant, type: :model do
       sundae = restaurant.dishes.create!(hot: false, price: 5, name: "Sundae")
       pho = restaurant.dishes.create!(hot: true, price: 12, name: "Pho")
 
-      expect(restaurant.max_price(12)).to eq([sundae, pho])
+      expect(restaurant.max_price(12)).to eq([sundae, phoby])
     end
   end
 end
