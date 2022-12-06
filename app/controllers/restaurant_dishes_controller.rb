@@ -3,6 +3,8 @@ class RestaurantDishesController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     if params[:sorted]
       @dishes = @restaurant.alpha
+    elsif params[:price]
+      @dishes = @restaurant.max_price(params[:price])
     else
       @dishes = @restaurant.dishes
     end

@@ -1,6 +1,13 @@
 <h1><%= @restaurant.name %></h1>
 <p><%= link_to "Add Dish", "/restaurants/#{@restaurant.id}/dishes/new" %></p>
 
+<%= form_with url: "/restaurants/#{@restaurant.id}/dishes", method: :get, local: true do |form| %>
+  <p><%= form.label :max_price %>
+  <%= form.text_field :price %></p>
+  <p><%= form.submit "Sort by max price" %></p>
+<% end %>
+<p><%= link_to "Sort by name", "/restaurants/#{@restaurant.id}/dishes?sorted=true" %></p>
+
 <% @dishes.each do |dish| %>
   <h3><%= dish.name %> <%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %></h3>
   <p>Id: <%= dish.id %></p>
@@ -11,4 +18,3 @@
   <p>Updated_at: <%= dish.updated_at %></p>
   <% end %>
   
-<p><%= link_to "Sort", "/restaurants/#{@restaurant.id}/dishes?sorted=true" %></p>
