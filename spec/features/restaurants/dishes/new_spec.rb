@@ -23,8 +23,9 @@ RSpec.describe 'restaurant dishes new page' do
 
     fill_in("name", with: "French Toast")
     fill_in("price", with: "12345")
-    fill_in("hot?", with: "true")
-    click_button('Create Dish')
+    fill_in("hot", with: "true")
+
+    click_on ('Create Dish')
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
     expect(page).to have_content("French Toast")

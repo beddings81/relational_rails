@@ -8,11 +8,10 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-    restaurant = Restaurant.create(name: params[:name], open: params[:open], rating: params[:rating])
+    restaurant = Restaurant.create(restaurant_params)
     redirect_to '/restaurants'
   end
   
@@ -33,8 +32,8 @@ class RestaurantsController < ApplicationController
     redirect_to "/restaurants"
   end
 
-private
+# private
   def restaurant_params
-    params.permit(:name, :open, :rating, :updated_at)
+    params.permit(:id, :name, :open, :rating, :updated_at)
   end
 end

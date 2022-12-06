@@ -9,7 +9,7 @@ class Restaurant < ApplicationRecord
     dishes.count
   end
 
-  def in_order
+  def alpha
     dishes.order(:name)
   end
 end

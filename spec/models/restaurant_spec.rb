@@ -35,7 +35,7 @@ RSpec.describe Restaurant, type: :model do
       sundae = restaurant.dishes.create!(hot: false, price: 5, name: "Sundae")
       pho = restaurant.dishes.create!(hot: true, price: 12, name: "Pho")
 
-      expect(restaurant.in_order).to eq([pasta, pho, sundae])
+      expect(restaurant.alpha).to eq([pasta, pho, sundae])
     end
   end
 end

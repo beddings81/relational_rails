@@ -7,4 +7,5 @@
 <p>Created_at: <%= @restaurant.created_at %></p>
 <p>Updated_at: <%= @restaurant.updated_at %></p>
 
-<%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %> | <%= button_to "Delete Restaurant", "/restaurants/#{@restaurant.id}/destroy" %>
+<p><%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %></p>
+<p><%= button_to "Delete Restaurant", "/restaurants/#{@restaurant.id}/destroy" %></p>

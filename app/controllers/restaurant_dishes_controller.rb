@@ -2,14 +2,14 @@ class RestaurantDishesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:id])
     if params[:sorted]
-      @dishes = @restaurant.in_order
+      @dishes = @restaurant.alpha
     else
       @dishes = @restaurant.dishes
     end
   end
 
   def new
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create_dish
@@ -21,6 +21,6 @@ class RestaurantDishesController < ApplicationController
 
 private
   def restaurant_dishes_params
-    params.require(:dish).permit(:name, :price, :hot, :restaurant_id)
+    params.permit(:id, :name, :price, :hot, :restaurant_id)
   end
 end

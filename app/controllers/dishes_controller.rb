@@ -8,11 +8,11 @@ class DishesController < ApplicationController
   end
 
   def edit
-    @dish = Dish.find(params[:id])
+    @dish = Dish.find(dish_params[:id])
   end
 
   def update
-    dish = Dish.find(params[:id])
+    dish = Dish.find(dish_params[:id])
     dish.update(dish_params)
     dish.save
 
@@ -27,6 +27,6 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.permit(:name, :price, :hot, :updated_at)
+    params.permit(:id, :name, :price, :hot, :updated_at)
   end
 end
