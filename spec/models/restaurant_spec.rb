@@ -38,4 +38,16 @@ RSpec.describe Restaurant, type: :model do
       expect(restaurant.alpha).to eq([pasta, pho, sundae])
     end
   end
+
+  describe '#max_price' do
+    it 'can sort dishes by max price' do
+      restaurant = Restaurant.create(open: true, rating: 3, name: "Rookies")
+
+      pasta = restaurant.dishes.create!(hot: true, price: 15, name: "Pasta")
+      sundae = restaurant.dishes.create!(hot: false, price: 5, name: "Sundae")
+      pho = restaurant.dishes.create!(hot: true, price: 12, name: "Pho")
+
+      expect(restaurant.max_price(12)).to eq([sundae, pho])
+    end
+  end
 end
