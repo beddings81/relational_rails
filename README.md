@@ -1,3 +1,3 @@
-# Restaurant_Manger
+# Restaurant_Manager
 
 ## By: Braxton Eddings
