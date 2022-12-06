@@ -51,7 +51,7 @@ RSpec.describe "Restaurant dishes index page" do
     expect(current_path).to eq("/dishes/#{@pasta.id}/edit")
   end
 
-  it 'contains a form to input a number' do
+  it 'contains a form to input a max price and filter the dishes by price' do
     visit "/restaurants/#{@restaurant.id}/dishes"
 
     fill_in("price", with: "12")

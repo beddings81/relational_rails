@@ -13,7 +13,7 @@ class Restaurant < ApplicationRecord
     dishes.order(:name)
   end
 
-  def max_price(max)
-    dishes.where("price <= #{max}")
+  def max_price(max_price)
+    dishes.where("price <= #{max_price}")
   end
 end
