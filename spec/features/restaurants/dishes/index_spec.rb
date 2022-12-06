@@ -37,17 +37,29 @@ RSpec.describe "Restaurant dishes index page" do
 
     expect(@pasta.name).to appear_before(@sundae.name)
 
-    click_on "Sort"
+    click_on "Sort by name"
 
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
     expect(@sundae.name).to appear_before(@pasta.name)
   end
 
   it 'links to a dishes edit page' do
-    visit "restaurants/#{@restaurant.id}/dishes"
+    visit "/restaurants/#{@restaurant.id}/dishes"
 
     click_link("Update #{@pasta.name}")
 
     expect(current_path).to eq("/dishes/#{@pasta.id}/edit")
+  end
+
+  it 'contains a form to input a number' do
+    visit "/restaurants/#{@restaurant.id}/dishes"
+
+    fill_in("price", with: "12")
+
+    click_on "Sort by max price"
+
+    expect(current_path).to eq("/restaurants/#{@restaurant.id}/dishes")
+    expect(page).to have_content(@sundae.name)
+    expect(page).not_to have_content(@pasta.name)
   end
 end
