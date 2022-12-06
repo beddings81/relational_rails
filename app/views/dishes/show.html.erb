@@ -6,4 +6,5 @@
 <p>Created_at: <%= @dish.created_at %></p>
 <p>Updated_at: <%= @dish.updated_at %></p>
 
-<%= link_to "Update Dish", "/dishes/#{@dish.id}/edit" %> | <%= button_to "Delete Dish", "/dishes/#{@dish.id}/destroy" %>
+<p><%= link_to "Update Dish", "/dishes/#{@dish.id}/edit" %></p>
+<%= button_to "Delete Dish", "/dishes/#{@dish.id}", method: :delete %>

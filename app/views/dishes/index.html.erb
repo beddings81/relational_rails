@@ -2,7 +2,7 @@
 <% @dishes.each do |dish| %>
   <h3><%= dish.name %></h3>
   <p><%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %></p>
-  <p><%= button_to "Delete #{dish.name}", "/dishes/#{dish.id}/destroy" %></p>
+  <p><%= button_to "Delete #{dish.name}", "/dishes/#{dish.id}", method: :delete  %></p>
   <p>Restaurant_id: <%= dish.restaurant_id %></p>
   <p>Price: <%= dish.price %></p>
   <p>Hot?: <%= dish.hot %></p>

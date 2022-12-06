@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   post '/restaurants/:restaurant_id/dishes', to: 'restaurant_dishes#create_dish'
   get 'dishes/:id/edit', to: 'dishes#edit'
   patch '/dishes/:id', to: 'dishes#update'
-  post 'restaurants/:id/destroy', to: 'restaurants#destroy'
-  post 'dishes/:id/destroy', to: 'dishes#destroy'
+  delete 'restaurants/:id', to: 'restaurants#destroy'
+  delete 'dishes/:id', to: 'dishes#destroy'
 end

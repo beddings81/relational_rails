@@ -8,4 +8,4 @@
 <p>Updated_at: <%= @restaurant.updated_at %></p>
 
 <p><%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %></p>
-<p><%= button_to "Delete Restaurant", "/restaurants/#{@restaurant.id}/destroy" %></p>
+<p><%= button_to "Delete Restaurant", "/restaurants/#{@restaurant.id}", method: :delete %></p>
